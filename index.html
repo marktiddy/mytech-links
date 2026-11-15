@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#24272c">
+<title>Mark's Tech Vlogs</title>
+<meta name="description" content="Honest smart home reviews. The tech I actually use and recommend, from the Mark's Tech Vlogs YouTube channel.">
+<meta property="og:title" content="Mark's Tech Vlogs – Tech I Use">
+<meta property="og:description" content="Honest smart home reviews. The tech I actually use and recommend.">
+<meta property="og:image" content="https://mytech.markstechblogs.co.uk/assets/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   EDIT THE CONTENT IN THE <script> AT THE BOTTOM OF THE FILE.
+   Brand colours below come from the MTV logo and channel banner.
+   ========================================================= */
+:root{
+  --bg:#24272c;          /* banner charcoal */
+  --card:#2d3036;        /* logo pill grey */
+  --card-hi:#33373e;
+  --text:#f4f6f8;
+  --muted:#a3abb7;
+  --line:#3b4048;
+  --blue:#3db4f2;        /* "Tech" blue / top of M gradient */
+  --blue-deep:#0b74a8;   /* bottom of M gradient */
+  --red:#ff3b30;         /* the dot */
+  --display:"Chakra Petch",Inter,system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:var(--bg)}
+body{margin:0;color:var(--text);font:16px/1.5 Inter,system-ui,-apple-system,sans-serif;min-height:100vh;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(61,180,242,.10),transparent 60%),
+    linear-gradient(rgba(36,39,44,.55),rgba(36,39,44,.92) 520px,var(--bg) 900px),
+    url("assets/bg.jpg") center top / 1600px auto no-repeat,
+    var(--bg);}
+a{color:inherit}
+.wrap{max-width:640px;margin:0 auto;padding:44px 16px 56px}
+
+/* ---------- Header ---------- */
+header{text-align:center;margin-bottom:30px}
+.avatar{width:112px;height:112px;border-radius:50%;margin:0 auto 18px;overflow:hidden;position:relative;
+  border:3px solid var(--blue);box-shadow:0 0 0 6px rgba(61,180,242,.12),0 0 28px rgba(61,180,242,.45);background:var(--card)}
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+h1{font-family:var(--display);font-weight:700;font-size:34px;line-height:1.1;margin:0 0 6px;letter-spacing:.01em}
+h1 .tech{color:var(--blue)}
+.tagline{font-family:var(--display);font-weight:600;color:#d7dce3;font-size:18px;margin:0 0 20px}
+.socials{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;text-decoration:none;font-weight:600;font-size:15px;
+  background:var(--card);border:1px solid var(--line);transition:transform .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px);border-color:var(--blue)}
+.btn.yt{background:var(--red);border-color:var(--red);color:#fff}
+.btn svg{width:18px;height:18px;flex:none}
+
+/* circuit-trace divider, echoing the banner */
+.trace{display:flex;align-items:center;gap:0;margin:28px 0;color:var(--blue)}
+.trace::before,.trace::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,transparent,var(--blue));box-shadow:0 0 8px rgba(61,180,242,.6)}
+.trace::after{background:linear-gradient(90deg,var(--blue),transparent)}
+.trace img{width:30px;height:auto;margin:0 12px;filter:drop-shadow(0 0 6px rgba(61,180,242,.5))}
+
+/* ---------- Featured app ---------- */
+.feature{display:flex;gap:16px;align-items:center;padding:18px;border-radius:20px;margin:0 0 8px;text-decoration:none;
+  background:linear-gradient(135deg,#123a55 0%,#1a2230 70%);border:1px solid rgba(61,180,242,.45);
+  box-shadow:0 0 24px rgba(61,180,242,.15);transition:transform .15s,box-shadow .15s}
+.feature:hover{transform:translateY(-1px);box-shadow:0 0 32px rgba(61,180,242,.3)}
+.feature .icon{width:64px;height:64px;border-radius:15px;flex:none;background:rgba(61,180,242,.15);display:grid;place-items:center;font-size:30px;overflow:hidden}
+.feature .icon img{width:100%;height:100%;object-fit:cover}
+.feature .eyebrow{font-family:var(--display);font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue)}
+.feature h2{font-family:var(--display);margin:0 0 2px;font-size:22px;line-height:1.2}
+.feature p{margin:0;font-size:14px;color:#c9d0da}
+.feature .go{margin-left:auto;flex:none;background:var(--blue);color:#0c1a24;font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px}
+
+/* ---------- Section + filters ---------- */
+.section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:0 0 12px}
+.section-head h2{font-family:var(--display);font-size:22px;margin:0}
+.count{color:var(--muted);font-size:14px}
+.search{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;margin-bottom:12px}
+.search::placeholder{color:var(--muted)}
+.search:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(61,180,242,.25)}
+.chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;margin-bottom:16px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line);border-radius:999px;padding:7px 13px;font:600 14px Inter,system-ui,sans-serif;background:var(--card);color:var(--text);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:#0c1a24}
+
+/* ---------- Product list ---------- */
+.list{display:grid;gap:10px}
+.item{display:flex;align-items:center;gap:14px;padding:12px 16px 12px 12px;background:var(--card);border:1px solid var(--line);border-radius:14px;
+  text-decoration:none;transition:transform .15s,border-color .15s,box-shadow .15s}
+.item:hover{transform:translateY(-1px);border-color:var(--blue);box-shadow:0 0 18px rgba(61,180,242,.18)}
+/* icon in a blue ring, like the banner's node icons */
+.node{width:44px;height:44px;border-radius:50%;border:2px solid var(--blue);display:grid;place-items:center;flex:none;color:#fff;
+  box-shadow:0 0 10px rgba(61,180,242,.35)}
+.node svg{width:22px;height:22px}
+.item .body{min-width:0;flex:1}
+.item .name{font-weight:600;display:block}
+.item .meta{font-size:13px;color:var(--muted)}
+.item .badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--red);margin-right:8px}
+.item .badge::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--red)}
+.item .arrow{color:var(--blue);flex:none}
+.code{display:inline-flex;gap:6px;align-items:center;margin-top:6px;border:1px dashed var(--blue);color:var(--blue);background:rgba(61,180,242,.08);
+  border-radius:8px;padding:3px 8px;font:600 13px ui-monospace,Menlo,monospace;cursor:pointer}
+.empty{text-align:center;color:var(--muted);padding:24px 0}
+.watch{display:inline-flex;gap:5px;align-items:center;margin-top:6px;margin-right:6px;border:1px solid var(--red);color:#fff;background:rgba(255,59,48,.15);
+  border-radius:8px;padding:3px 8px;font:600 13px Inter,system-ui,sans-serif;cursor:pointer}
+
+/* brand quick filters */
+.brands{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin:-2px 0 12px;font-size:13px;color:var(--muted)}
+.brand{border:0;background:none;color:var(--blue);font:600 13px Inter,system-ui,sans-serif;padding:4px 6px;border-radius:6px;cursor:pointer}
+.brand[aria-pressed="true"]{background:rgba(61,180,242,.15)}
+
+/* popular videos */
+.vids-sec{margin-top:28px}
+.more{color:var(--blue);font-size:14px;font-weight:600;text-decoration:none}
+.vids{display:grid;grid-auto-flow:column;grid-auto-columns:min(72%,240px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
+.vids::-webkit-scrollbar{display:none}
+.vid{scroll-snap-align:start;text-decoration:none;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;transition:border-color .15s}
+.vid:hover{border-color:var(--blue)}
+.vid .thumb{position:relative;aspect-ratio:16/9;background:#111}
+.vid .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.vid .thumb::after{content:"";position:absolute;inset:auto auto 8px 8px;width:30px;height:21px;border-radius:6px;
+  background:var(--red) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 7v10l8-5z'/%3E%3C/svg%3E") center/16px no-repeat}
+.vid p{margin:0;padding:10px 12px 12px;font-size:14px;font-weight:600;line-height:1.35}
+
+footer{margin-top:40px;text-align:center;font-size:13px;color:var(--muted)}
+footer p{margin:6px 0}
+footer img{width:34px;height:auto;margin-bottom:6px;opacity:.9}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="avatar"><img id="avatar" alt="" src="assets/avatar.jpg"></div>
+    <h1>Mark’s <span class="tech">Tech</span> Vlogs</h1>
+    <p class="tagline" id="tagline"></p>
+    <div class="socials" id="socials"></div>
+  </header>
+
+  <a class="feature" id="feature" target="_blank" rel="noopener"></a>
+
+  <section aria-labelledby="vids-h" class="vids-sec">
+    <div class="section-head">
+      <h2 id="vids-h">Popular on the channel</h2>
+      <a class="more" id="morevids" target="_blank" rel="noopener">All videos →</a>
+    </div>
+    <div class="vids" id="vids"></div>
+  </section>
+
+  <div class="trace" aria-hidden="true"><img src="assets/logo-mark.png" alt=""></div>
+
+  <section aria-labelledby="gear-h">
+    <div class="section-head">
+      <h2 id="gear-h">Tech I use &amp; recommend</h2>
+      <span class="count" id="count"></span>
+    </div>
+    <input class="search" id="search" type="search" placeholder="Search products…" aria-label="Search products">
+    <div class="brands" id="brands"></div>
+    <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+    <div class="list" id="list"></div>
+  </section>
+
+  <footer>
+    <img src="assets/logo-mark.png" alt="Mark's Tech Vlogs logo">
+    <p id="disclosure"></p>
+    <p>© <span id="year"></span> Mark's Tech Vlogs</p>
+  </footer>
+</div>
+
+<script>
+/* =====================================================================
+   ✏️  EVERYTHING YOU NEED TO EDIT IS IN THIS BLOCK
+   ---------------------------------------------------------------------
+   • To add a product: copy one line in PRODUCTS, change the name/link.
+   • To remove one: delete its line.
+   • New products appear at the top if you set  new: true
+   • category must match one of the CATEGORIES keys.
+   ===================================================================== */
+const SITE = {
+  tagline: "Honest smart home reviews",
+  youtube: "https://www.youtube.com/@markstechvlogs",
+  instagram: "https://www.instagram.com/markstechvlogs", // ← check this is right
+  disclosure: "Some links are affiliate links (Amazon via Geniuslink and others). If you buy through them I may earn a small commission at no extra cost to you. It helps support the channel, thank you!"
+};
+
+const FEATURED_APP = {
+  name: "Pairbook",
+  blurb: "Never lose a HomeKit or Matter setup code again. Free for up to 15 accessories.",
+  url: "https://apps.apple.com/app/id6829861390",
+  icon: "assets/pairbook-icon.png",
+  cta: "Get it"
+};
+
+// Quick brand buttons under the search box (they just search for the word)
+const BRANDS = ["Aqara", "SwitchBot", "Meross", "Blinds Magic"];
+
+// icon: one of  sensor, thermo, blinds, lock, camera, light, vacuum, paw, plug, wifi, car, house, fan
+const CATEGORIES = {
+  sensors:  { label: "Hubs & Sensors",      icon: "sensor" },
+  blinds:   { label: "Blinds & Curtains",   icon: "blinds" },
+  locks:    { label: "Smart Locks",         icon: "lock" },
+  cameras:  { label: "Doorbells & Cameras", icon: "camera" },
+  climate:  { label: "Heating & Cooling",   icon: "thermo" },
+  lights:   { label: "Lighting",            icon: "light" },
+  power:    { label: "Plugs & Power",       icon: "plug" },
+  ha:       { label: "Home Assistant",      icon: "house" },
+  cleaning: { label: "Robot Vacuums",       icon: "vacuum" },
+  pets:     { label: "Pets",                icon: "paw" },
+  network:  { label: "Wi-Fi",               icon: "wifi" },
+  car:      { label: "Car",                 icon: "car" },
+};
+
+// Optional extras on a product:
+//   new: true            → "New" badge, sorted to the top
+//   note: "..."          → replaces the category text under the name
+//   code: "..."          → tap-to-copy discount code
+//   video: "YouTubeID"   → adds a "Watch review" button
+//   icon: "fan"          → use a different icon from the category's
+const PRODUCTS = [
+  // ---- Newest ----
+  { name: "Aqara U600 Smart Lock (Apple Home Key, UK doors)", category: "locks",   url: "https://geni.us/tIAwA5f", new: true },
+  { name: "Aqara FP400 Multi-Zone Presence Sensor",           category: "sensors", url: "https://geni.us/wijtacn", new: true },
+  { name: "Aqara Outdoor String Lights H1",                   category: "lights",  url: "https://geni.us/LyhRFyX", new: true },
+  { name: "SwitchBot Smart Fan",                              category: "climate", url: "https://geni.us/eGx59cS", new: true, icon: "fan" },
+  { name: "SwitchBot E-Ink Home Dashboard",                   category: "sensors", url: "https://geni.us/2mI2kV",  new: true },
+
+  // ---- Blinds ----
+  { name: "Blinds Magic Custom Smart Blinds",                 category: "blinds",  url: "https://blindsmagic.com/?bg_ref=ns7aiw8bc6", code: "BM-5071", note: "Made to measure · save 8% with my code" },
+  { name: "SwitchBot Blind Tilt",                             category: "blinds",  url: "https://geni.us/2IsxyD" },
+
+  // ---- Aqara ----
+  { name: "Aqara Hub M100 (Matter + Thread)",                 category: "sensors", url: "https://geni.us/Mi36" },
+  { name: "Aqara Hub M3 (Matter + Thread)",                   category: "sensors", url: "https://geni.us/dY4D7" },
+  { name: "Aqara FP300 Presence Sensor",                      category: "sensors", url: "https://geni.us/OkdqMb" },
+  { name: "Aqara Motion Sensor P1",                           category: "sensors", url: "https://geni.us/OaKY6U" },
+  { name: "Aqara Temperature & Humidity Sensor",              category: "sensors", url: "https://geni.us/jCAJE" },
+  { name: "Aqara U200 Smart Lock",                            category: "locks",   url: "https://geni.us/Mxgu6tp" },
+  { name: "Aqara Doorbell Camera G400 (Wired/PoE)",           category: "cameras", url: "https://geni.us/GEfgSnH" },
+  { name: "Aqara Doorbell Camera G410",                       category: "cameras", url: "https://geni.us/4WNYw" },
+  { name: "Aqara Camera Hub G350 (4K Dual-Lens)",             category: "cameras", url: "https://geni.us/kPlxcId" },
+  { name: "Aqara Camera Hub G3",                              category: "cameras", url: "https://geni.us/zBA2eTs" },
+  { name: "Aqara W600 Smart Radiator Valves",                 category: "climate", url: "https://geni.us/3Kndq" },
+  { name: "Aqara LED Ceiling Light T1M",                      category: "lights",  url: "https://geni.us/8dE22p" },
+  { name: "Aqara LED Strip T1",                               category: "lights",  url: "https://geni.us/34u6OW" },
+  { name: "Aqara Wall Outlet H2 UK (Double Socket + USB-C)",  category: "power",   url: "https://geni.us/w9p7gj" },
+  { name: "Aqara Power Plug H2 UK",                           category: "power",   url: "https://geni.us/uEop3z" },
+  { name: "Aqara Wall Switch H1 (No Neutral)",                category: "power",   url: "https://geni.us/U5Jot" },
+  { name: "Aqara Dual Relay Module T2",                       category: "power",   url: "https://geni.us/VYZV3Eq", note: "Great for garage doors" },
+  { name: "Aqara Smart Pet Feeder",                           category: "pets",    url: "https://geni.us/mBOBjBp" },
+  { name: "Browse all Aqara on Amazon",                       category: "sensors", url: "https://geni.us/aqaraproducts", note: "Everything Aqara in one place" },
+
+  // ---- SwitchBot ----
+  { name: "SwitchBot Matter Hub 2",                           category: "sensors", url: "https://geni.us/zzvBBF" },
+  { name: "SwitchBot Hub Mini (Matter)",                      category: "sensors", url: "https://geni.us/AhiPA" },
+  { name: "SwitchBot mmWave Presence Sensor",                 category: "sensors", url: "https://geni.us/PsB6rQB" },
+  { name: "SwitchBot Door & Window Contact Sensor",           category: "sensors", url: "https://geni.us/HBlrpBB" },
+  { name: "SwitchBot Lock Pro",                               category: "locks",   url: "https://geni.us/bZmQR" },
+  { name: "SwitchBot Video Doorbell (with 4.3\" screen)",     category: "cameras", url: "https://geni.us/JBaJhm" },
+  { name: "SwitchBot Matter LED Strip 5m",                    category: "lights",  url: "https://geni.us/welko" },
+  { name: "SwitchBot K10+ Pro Combo Robot Vacuum",            category: "cleaning",url: "https://geni.us/HSnx" },
+  { name: "SwitchBot S10 Robot Vacuum & Mop",                 category: "cleaning",url: "https://geni.us/X7SXY" },
+
+  // ---- Meross ----
+  { name: "Meross Smart Smoke Alarm (with Matter Hub)",       category: "sensors", url: "https://geni.us/6QKr" },
+  { name: "Meross HomeKit Door & Window Sensor",              category: "sensors", url: "https://geni.us/QuFvKVL" },
+  { name: "Meross HomeKit Power Strip",                       category: "power",   url: "https://geni.us/T8YS6L" },
+  { name: "Browse the Meross store on Amazon",                category: "power",   url: "https://geni.us/x0H2D", note: "All Meross products" },
+
+  // ---- Heating ----
+  { name: "tado° Smart Thermostat",                           category: "climate", url: "https://geni.us/jjMEEu" },
+  { name: "Habi Smart Thermostat Kit",                        category: "climate", url: "https://geni.us/UGyB1D" },
+  { name: "Habi Smart Radiator Valve",                        category: "climate", url: "https://geni.us/TE5AehN" },
+  { name: "Dreo TurboCool Misting Fan",                       category: "climate", url: "https://geni.us/wQpXg", icon: "fan" },
+
+  // ---- Locks (other) ----
+  { name: "Nuki Smart Lock",                                  category: "locks",   url: "https://geni.us/r4QIAi" },
+  { name: "Yale Linus Smart Lock L2 Lite",                    category: "locks",   url: "https://geni.us/XjzuN" },
+
+  // ---- Home Assistant ----
+  { name: "Home Assistant Connect ZBT-2",                     category: "ha",      url: "https://geni.us/5YlkzCp" },
+  { name: "Home Assistant Green",                             category: "ha",      url: "https://geni.us/7vLwUJQ" },
+  { name: "Raspberry Pi 5 8GB NVMe Kit",                      category: "ha",      url: "https://geni.us/2DRoi2" },
+  { name: "SONOFF Zigbee Bridge Ultra (Matter)",              category: "ha",      url: "https://geni.us/qzEtJ" },
+  { name: "SONOFF SNZB-01P Zigbee Button",                    category: "ha",      url: "https://geni.us/0nl9xuC" },
+  { name: "Homey Pro mini",                                   category: "ha",      url: "https://geni.us/uIBTx" },
+
+  // ---- Everything else ----
+  { name: "Philips Hue Bridge Pro Starter Kit",               category: "lights",  url: "https://geni.us/0A5Tw" },
+  { name: "Govee Smart RGBIC Ceiling Light",                  category: "lights",  url: "https://geni.us/yktmgjP" },
+  { name: "Shelly Plus Plug UK (2 pack)",                     category: "power",   url: "https://geni.us/ohH82Ze" },
+  { name: "Reolink Altas PT Ultra 4K Solar Camera",           category: "cameras", url: "https://geni.us/eQ4upR" },
+  { name: "Tapo RV50 Pro Omni Robot Vacuum and Mop",          category: "cleaning",url: "https://geni.us/oku32RM" },
+  { name: "PetSnowy Weight-Sensing Cat Fountain",             category: "pets",    url: "https://geni.us/uahja" },
+  { name: "SureFlap Microchip Cat Flap Connect",              category: "pets",    url: "https://geni.us/nLkfh" },
+  { name: "TP-Link Deco BE9300 Wi-Fi 7 Mesh",                 category: "network", url: "https://geni.us/5dsO" },
+  { name: "TP-Link Deco BE14000 Wi-Fi 7 Mesh",                category: "network", url: "https://geni.us/yFWg" },
+  { name: "GKU 4K Front & Rear Dash Cam",                     category: "car",     url: "https://geni.us/YBKJ" },
+  { name: "Kia Picanto (2011–17) CarPlay Stereo Fitting Kit", category: "car",     url: "https://geni.us/QN2Ad", video: "lDgHzQSr_Gc" },
+];
+
+// "Popular on the channel" strip: YouTube video IDs + short titles
+const VIDEOS = [
+  { id: "k5I20E3PiTA", title: "Build the perfect smart heating system with Home Assistant" },
+  { id: "dbyViAYE1ec", title: "Apple HomeKit + Home Assistant: the perfect smart home?" },
+  { id: "q8LoSYJPCTU", title: "Aqara G100: best budget camera for Apple users" },
+  { id: "QIDy3VgVGs0", title: "Tado X unboxing and setup" },
+  { id: "3wStnIaujbw", title: "Which UK multipoint smart lock is best?" },
+  { id: "SFdaJRstCYw", title: "SwitchBot Bot vs Fingerbot Plus" },
+];
+/* ===================== end of editable section ===================== */
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+// Line icons in the style of the channel banner
+const svg = p => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
+const ICONS = {
+  sensor: svg('<circle cx="12" cy="12" r="2"/><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/>'),
+  thermo: svg('<path d="M14 14.8V5a2 2 0 0 0-4 0v9.8a4 4 0 1 0 4 0Z"/><path d="M12 9v7"/>'),
+  blinds: svg('<path d="M4 4h16M5 4v12M19 4v12M5 8h14M5 12h14M5 16h14M12 16v4"/><circle cx="12" cy="20.5" r=".6"/>'),
+  lock:   svg('<rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3M12 15v2"/>'),
+  vacuum: svg('<circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3"/><path d="M8 5.8h8"/>'),
+  paw:    svg('<circle cx="7" cy="10" r="1.6"/><circle cx="10" cy="6.5" r="1.6"/><circle cx="14" cy="6.5" r="1.6"/><circle cx="17" cy="10" r="1.6"/><path d="M12 11c-2.5 0-5 3.5-5 6a2.5 2.5 0 0 0 3 2.4 7 7 0 0 1 4 0 2.5 2.5 0 0 0 3-2.4c0-2.5-2.5-6-5-6Z"/>'),
+  plug:   svg('<path d="M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0V8ZM12 17v4"/>'),
+  wifi:   svg('<path d="M2.5 9a14 14 0 0 1 19 0M5.5 12.5a9.5 9.5 0 0 1 13 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19" r=".8" fill="currentColor"/>'),
+  car:    svg('<path d="M5 16V12l2-5h10l2 5v4M3 16h18v3H3zM5 12h14"/><circle cx="7.5" cy="14" r=".6"/><circle cx="16.5" cy="14" r=".6"/>'),
+  camera: svg('<rect x="3" y="7" width="13" height="10" rx="2"/><path d="m16 11 5-3v8l-5-3"/><circle cx="9.5" cy="12" r="2"/>'),
+  light:  svg('<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"/>'),
+  house:  svg('<path d="M3 11 12 4l9 7M5 9.5V20h14V9.5"/><circle cx="12" cy="14" r="1.6"/><path d="M12 15.6V18M10.6 13.2 8.5 12M13.4 13.2l2.1-1.2"/>'),
+  fan:    svg('<circle cx="12" cy="12" r="1.6"/><path d="M12 10.4C11 6 12 3 14.5 3S17 7 13.4 11.3M13.6 12c4.4-1 7.4 0 7.4 2.5S17 17 12.7 13.4M12 13.6c1 4.4 0 7.4-2.5 7.4S7 17 10.6 12.7M10.4 12C6 13 3 12 3 9.5S7 7 11.3 10.6"/>'),
+  star:   svg('<path d="m12 3 2.8 5.8 6.2.8-4.5 4.4 1.1 6.2L12 17.3 6.4 20.2l1.1-6.2L3 9.6l6.2-.8Z"/>'),
+};
+const BRAND = {
+  yt: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31 31 0 0 0 0 12a31 31 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 24 12a31 31 0 0 0-.5-5.8ZM9.6 15.6V8.4l6.3 3.6-6.3 3.6Z"/></svg>',
+  ig: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>'
+};
+
+// Header
+$("tagline").textContent = SITE.tagline;
+$("avatar").alt = "Mark";
+$("disclosure").textContent = SITE.disclosure;
+$("year").textContent = new Date().getFullYear();
+$("socials").innerHTML =
+  `<a class="btn yt" href="${esc(SITE.youtube)}?sub_confirmation=1" target="_blank" rel="noopener">${BRAND.yt}Subscribe on YouTube</a>` +
+  (SITE.instagram ? `<a class="btn" href="${esc(SITE.instagram)}" target="_blank" rel="noopener">${BRAND.ig}Instagram</a>` : "");
+
+// Featured app
+const f = FEATURED_APP, fe = $("feature");
+fe.href = f.url;
+fe.innerHTML = `<div class="icon" id="appicon">📱</div>
+  <div><div class="eyebrow">My app</div><h2>${esc(f.name)}</h2><p>${esc(f.blurb)}</p></div>
+  <span class="go">${esc(f.cta)}</span>`;
+if (f.icon) { const i = new Image(); i.alt = ""; i.onload = () => { $("appicon").textContent = ""; $("appicon").appendChild(i); }; i.src = f.icon; }
+
+// Filters
+let active = "all", query = "";
+const used = Object.keys(CATEGORIES).filter(k => PRODUCTS.some(p => p.category === k));
+$("chips").innerHTML = [["all", "All"], ...used.map(k => [k, CATEGORIES[k].label])]
+  .map(([k, l]) => `<button class="chip" data-cat="${k}" aria-pressed="${k === active}">${esc(l)}</button>`).join("");
+$("chips").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  active = b.dataset.cat;
+  document.querySelectorAll(".chip").forEach(c => c.setAttribute("aria-pressed", c === b));
+  render();
+});
+const syncBrands = () => document.querySelectorAll(".brand").forEach(b => b.setAttribute("aria-pressed", b.dataset.q === query));
+$("search").addEventListener("input", e => { query = e.target.value.trim().toLowerCase(); syncBrands(); render(); });
+
+// Brand quick filters (toggle a search for the brand name)
+$("brands").innerHTML = "Brands I use daily:" + BRANDS.map(b =>
+  `<button class="brand" data-q="${esc(b.toLowerCase())}" aria-pressed="false">${esc(b)}</button>`).join("");
+$("brands").addEventListener("click", e => {
+  const b = e.target.closest(".brand"); if (!b) return;
+  query = query === b.dataset.q ? "" : b.dataset.q;
+  $("search").value = query ? b.textContent : "";
+  syncBrands(); render();
+});
+
+// Popular videos
+$("morevids").href = SITE.youtube + "/videos";
+$("vids").innerHTML = VIDEOS.map(v => `<a class="vid" href="https://www.youtube.com/watch?v=${esc(v.id)}" target="_blank" rel="noopener">
+  <div class="thumb"><img loading="lazy" alt="" src="https://i.ytimg.com/vi/${esc(v.id)}/mqdefault.jpg"></div>
+  <p>${esc(v.title)}</p></a>`).join("");
+
+// "Watch review" buttons inside product rows (don't follow the product link)
+$("list").addEventListener("click", e => {
+  const w = e.target.closest(".watch"); if (!w) return;
+  e.preventDefault(); e.stopPropagation();
+  window.open("https://www.youtube.com/watch?v=" + encodeURIComponent(w.dataset.v), "_blank", "noopener");
+});
+
+// Copy discount code (doesn't follow the link)
+$("list").addEventListener("click", e => {
+  const b = e.target.closest(".code"); if (!b) return;
+  e.preventDefault(); e.stopPropagation();
+  navigator.clipboard?.writeText(b.dataset.code).then(() => {
+    const old = b.textContent; b.textContent = "Copied ✓"; setTimeout(() => b.textContent = old, 1500);
+  }).catch(() => {});
+});
+
+function render() {
+  const items = PRODUCTS
+    .map((p, i) => ({ ...p, i }))
+    .filter(p => (active === "all" || p.category === active) &&
+                 (!query || p.name.toLowerCase().includes(query) || (CATEGORIES[p.category]?.label || "").toLowerCase().includes(query)))
+    .sort((a, b) => (b.new ? 1 : 0) - (a.new ? 1 : 0) || a.i - b.i);
+  $("count").textContent = `${items.length} item${items.length === 1 ? "" : "s"}`;
+  $("list").innerHTML = items.length ? items.map(p => {
+    const c = CATEGORIES[p.category] || { label: "", icon: "star" };
+    return `<a class="item" href="${esc(p.url)}" target="_blank" rel="noopener sponsored">
+      <span class="node" aria-hidden="true">${ICONS[p.icon] || ICONS[c.icon] || ICONS.star}</span>
+      <span class="body">
+        <span class="name">${esc(p.name)}</span>
+        <span class="meta">${p.new ? '<span class="badge">New</span>' : ""}${esc(p.note || c.label)}</span>
+        ${p.video || p.code ? "<br>" : ""}${p.video ? `<button class="watch" data-v="${esc(p.video)}">▶ Watch review</button>` : ""}${p.code ? `<button class="code" data-code="${esc(p.code)}" title="Copy code">${esc(p.code)} ⧉</button>` : ""}
+      </span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>`;
+  }).join("") : `<p class="empty">Nothing matches “${esc(query)}”.</p>`;
+}
+render();
+</script>
+<!-- Geniuslink: turns any plain Amazon link on this page into a localised, affiliated link -->
+<script type="text/javascript" src="https://geniuslinkcdn.com/snippet.min.js" defer></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function () {
+  var tsid = 360676;
+  Genius.amazon.convertLinks(tsid, true, "https://buy.geni.us");
+});
+</script>
+</body>
+</html>
