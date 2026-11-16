@@ -115,7 +115,7 @@ h1 .tech{color:var(--blue)}
 .brand[aria-pressed="true"]{background:rgba(61,180,242,.15)}
 
 /* popular videos */
-.vids-sec{margin-top:28px}
+.vids-sec{margin-top:36px}
 .more{color:var(--blue);font-size:14px;font-weight:600;text-decoration:none}
 .vids{display:grid;grid-auto-flow:column;grid-auto-columns:min(72%,240px);gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;scrollbar-width:none}
 .vids::-webkit-scrollbar{display:none}
@@ -143,14 +143,6 @@ footer img{width:34px;height:auto;margin-bottom:6px;opacity:.9}
 
   <a class="feature" id="feature" target="_blank" rel="noopener"></a>
 
-  <section aria-labelledby="vids-h" class="vids-sec">
-    <div class="section-head">
-      <h2 id="vids-h">Popular on the channel</h2>
-      <a class="more" id="morevids" target="_blank" rel="noopener">All videos →</a>
-    </div>
-    <div class="vids" id="vids"></div>
-  </section>
-
   <div class="trace" aria-hidden="true"><img src="assets/logo-mark.png" alt=""></div>
 
   <section aria-labelledby="gear-h">
@@ -162,6 +154,14 @@ footer img{width:34px;height:auto;margin-bottom:6px;opacity:.9}
     <div class="brands" id="brands"></div>
     <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
     <div class="list" id="list"></div>
+  </section>
+
+  <section aria-labelledby="vids-h" class="vids-sec">
+    <div class="section-head">
+      <h2 id="vids-h">Popular on the channel</h2>
+      <a class="more" id="morevids" target="_blank" rel="noopener">All videos →</a>
+    </div>
+    <div class="vids" id="vids"></div>
   </section>
 
   <footer>
